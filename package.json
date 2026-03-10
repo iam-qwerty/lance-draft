@@ -1,32 +1,49 @@
 {
-	"name": "fend-am",
+	"name": "lancedraft",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
+		"dev": "concurrently \"next dev --turbopack\" \"bunx convex dev\"",
+		"dev:next": "next dev --turbopack",
+		"dev:convex": "bunx convex dev",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"type-check": "tsc --noEmit",
+		"test": "vitest run",
+		"test:watch": "vitest",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
 	},
 	"dependencies": {
+		"@clerk/nextjs": "^7.0.1",
+		"@clerk/themes": "^2.4.57",
+		"@google/generative-ai": "^0.24.1",
 		"@opennextjs/cloudflare": "^1.3.0",
+		"clsx": "^2.1.1",
+		"convex": "^1.32.0",
+		"fast-xml-parser": "^5.4.2",
+		"lucide-react": "^0.577.0",
 		"next": "15.4.6",
 		"react": "19.1.0",
-		"react-dom": "19.1.0"
+		"react-dom": "19.1.0",
+		"resend": "^6.9.3",
+		"svix": "^1.86.0",
+		"tailwind-merge": "^3.5.0"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
 		"@tailwindcss/postcss": "^4",
-		"@types/node": "^24.10.0",
+		"@types/node": "^25.3.5",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"concurrently": "^9.2.1",
 		"eslint": "^9",
 		"eslint-config-next": "15.4.6",
 		"tailwindcss": "^4",
 		"typescript": "^5",
+		"vitest": "^4.0.18",
 		"wrangler": "^4.46.0"
 	}
 }

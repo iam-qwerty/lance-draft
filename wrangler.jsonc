@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "fend-am",
+	"name": "lancedraft",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-03-01",
 	"compatibility_flags": [
@@ -17,6 +17,10 @@
 	},
 	"observability": {
 		"enabled": true
+	},
+	// Cloudflare Cron Trigger — polls Upwork RSS every 15 minutes
+	"triggers": {
+		"crons": ["*/15 * * * *"]
 	}
 	/**
 	 * Smart Placement
